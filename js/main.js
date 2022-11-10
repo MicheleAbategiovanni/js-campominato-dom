@@ -2,6 +2,8 @@ const btnPlayEl = document.querySelector("button");
 const gridContainerEl = document.querySelector(".container");
 let bombs;
 
+let contatorePunteggio = 0;
+
 
 
 btnPlayEl.addEventListener("click", function () {
@@ -14,6 +16,7 @@ btnPlayEl.addEventListener("click", function () {
 
     generateCells(gridContainerEl, difficultyEl);
 
+    console.log(contatorePunteggio)
 })
 
 

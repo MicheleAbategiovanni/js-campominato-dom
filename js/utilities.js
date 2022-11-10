@@ -22,7 +22,7 @@ function generateCells(html, valueselect) {
         cellEl.dataset.numCella = i;
         container.append(cellEl);
 
-        cellEl.addEventListener("click", cellClick);
+        cellEl.addEventListener("click", cellClick );
 
     }
 }
@@ -33,17 +33,27 @@ function generateRandomNumber(min, max) {
 
 function cellClick() {
     const numCell = +this.dataset.numCella;
+    
 
     if (bombs.includes(numCell)) {
 
         alert("Hai trovato una bomba!!! Game Over!");
+
+        alert(`Il tuo punteggio è di ${contatorePunteggio} bombe schivate !!`)
+
         this.classList.add("active", "bomb");
+
 
     } else {
 
         this.classList.toggle("active");
 
+        contatorePunteggio++;
+
+        return contatorePunteggio;
     }
+
+    
 }
 
 function generateBombsList(valueselect) {
