@@ -4,65 +4,77 @@ function generateCells(html, valueselect) {
 
     container.innerHTML = "";
 
-    if (valueselect == "1") {
+    if (valueselect == "100") {
 
         for (let i = 1; i <= 100; i++) {
             const cellEl = document.createElement("div");
             cellEl.classList.add("cell");
-            cellEl.innerHTML = `${i}`;
+            cellEl.dataset.numCella = i;
             container.append(cellEl);
 
-            cellEl.addEventListener("click", function () {
-
-                this.classList.toggle("bg-dark");
-                this.classList.toggle("text-danger");
-
-                console.log(`Hai cliccato sulla cella ${i}`);
-
-            })
+            cellEl.addEventListener("click", cellClick);
 
         }
 
-    } else if (valueselect == "2") {
+    } else if (valueselect == "81") {
 
         for (let i = 1; i <= 81; i++) {
             const cellEl = document.createElement("div");
             cellEl.classList.add("cell");
             cellEl.style.width = "11%";
-            cellEl.innerHTML = `${i}`;
+            cellEl.dataset.numCella = i;
             container.append(cellEl);
 
-            cellEl.addEventListener("click", function () {
-
-                this.classList.toggle("bg-dark");
-                this.classList.toggle("text-danger");
-
-                console.log(`Hai cliccato sulla cella ${i}`);
-
-            })
-
+            cellEl.addEventListener("click", cellClick);
         }
 
-    } else if (valueselect == "3") {
+    } else if (valueselect == "49") {
 
         for (let i = 1; i <= 49; i++) {
             const cellEl = document.createElement("div");
             cellEl.classList.add("cell");
             cellEl.style.width = "13%";
-            cellEl.innerHTML = `${i}`;
+            cellEl.dataset.numCella = i;
             container.append(cellEl);
 
-            cellEl.addEventListener("click", function () {
-
-                this.classList.toggle("bg-dark");
-                this.classList.toggle("text-danger");
-
-                console.log(`Hai cliccato sulla cella ${i}`);
-
-            })
-
+            cellEl.addEventListener("click", cellClick);
         }
 
     }
 
+}
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function cellClick(bombsList) {
+    const numCell = +this.dataset.numCella;
+
+    if (bombs.includes(numCell)) {
+
+            alert("Hai trovato una bomba!!! Game Over!");
+            this.classList.add("active", "bomb");
+
+    } else {
+
+        this.classList.toggle("active");
+
+    }
+}
+
+function generateBombsList(valueselect) {
+    const bombsList = [];
+
+    while (bombsList.length < 16) {
+        const num = generateRandomNumber(1, valueselect);
+
+        if (!bombsList.includes(num)) {
+
+            bombsList.push(num);
+
+        }
+    }
+
+    return bombsList;
 }
