@@ -4,44 +4,27 @@ function generateCells(html, valueselect) {
 
     container.innerHTML = "";
 
-    if (valueselect == "100") {
+    for (let i = 1; i <= valueselect; i++) {
 
-        for (let i = 1; i <= 100; i++) {
-            const cellEl = document.createElement("div");
-            cellEl.classList.add("cell");
-            cellEl.dataset.numCella = i;
-            container.append(cellEl);
+        const cellEl = document.createElement("div");
+        cellEl.classList.add("cell");
 
-            cellEl.addEventListener("click", cellClick);
+        if (valueselect == "81") {
 
-        }
-
-    } else if (valueselect == "81") {
-
-        for (let i = 1; i <= 81; i++) {
-            const cellEl = document.createElement("div");
-            cellEl.classList.add("cell");
             cellEl.style.width = "11%";
-            cellEl.dataset.numCella = i;
-            container.append(cellEl);
 
-            cellEl.addEventListener("click", cellClick);
-        }
+        } else if (valueselect == "49") {
 
-    } else if (valueselect == "49") {
-
-        for (let i = 1; i <= 49; i++) {
-            const cellEl = document.createElement("div");
-            cellEl.classList.add("cell");
             cellEl.style.width = "13%";
-            cellEl.dataset.numCella = i;
-            container.append(cellEl);
 
-            cellEl.addEventListener("click", cellClick);
         }
+
+        cellEl.dataset.numCella = i;
+        container.append(cellEl);
+
+        cellEl.addEventListener("click", cellClick);
 
     }
-
 }
 
 function generateRandomNumber(min, max) {
@@ -53,8 +36,8 @@ function cellClick() {
 
     if (bombs.includes(numCell)) {
 
-            alert("Hai trovato una bomba!!! Game Over!");
-            this.classList.add("active", "bomb");
+        alert("Hai trovato una bomba!!! Game Over!");
+        this.classList.add("active", "bomb");
 
     } else {
 
