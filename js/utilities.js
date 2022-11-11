@@ -1,4 +1,6 @@
-function generateCells(html, valueselect) {
+function generateCells(html, valueselect, cellesenzabombe) {
+
+    // let celleNoBombs = +valueselect - 16;
 
     const container = document.querySelector(".container");
 
