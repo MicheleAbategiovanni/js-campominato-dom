@@ -18,13 +18,14 @@ function generateCells(html, valueselect) {
             cellEl.style.width = "13%";
 
         }
-
         cellEl.dataset.numCella = i;
         container.append(cellEl);
 
-        cellEl.addEventListener("click", cellClick );
+        cellEl.addEventListener("click", cellClick);
 
     }
+
+
 }
 
 function generateRandomNumber(min, max) {
@@ -33,27 +34,42 @@ function generateRandomNumber(min, max) {
 
 function cellClick() {
     const numCell = +this.dataset.numCella;
-    
 
-    if (bombs.includes(numCell)) {
+    if (contatorePerso == 0 && contatorePunteggio < celleNoBombs) {
 
-        alert("Hai trovato una bomba!!! Game Over!");
+        if (bombs.includes(numCell)) {
 
-        alert(`Il tuo punteggio è di ${contatorePunteggio} bombe schivate !!`)
+            alert("Hai trovato una bomba!!! Game Over!");
 
-        this.classList.add("active", "bomb");
+            alert(`Il tuo punteggio è di ${contatorePunteggio} bombe schivate !!`)
 
+            this.classList.add("active", "bomb");
 
-    } else {
+            contatorePerso++;
 
-        this.classList.toggle("active");
+            return contatorePerso;
 
-        contatorePunteggio++;
+        } else {
 
-        return contatorePunteggio;
+            this.classList.toggle("active");
+            this.classList.toggle("pointer");
+
+            contatorePunteggio++;
+
+            if (contatorePerso == 0 && contatorePunteggio == celleNoBombs) {
+                alert("DioNIso");
+
+            }
+
+            return contatorePunteggio;
+        }
+
+    } else if (contatorePerso == 1) {
+
+        return;
+
     }
 
-    
 }
 
 function generateBombsList(valueselect) {
