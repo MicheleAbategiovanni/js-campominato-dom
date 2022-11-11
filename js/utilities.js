@@ -57,7 +57,7 @@ function cellClick() {
             contatorePunteggio++;
 
             if (contatorePerso == 0 && contatorePunteggio == celleNoBombs) {
-                alert("Complimentissimi Hai vinto !");
+                alert("Hai vinto");
 
             }
 

@@ -18,3 +18,7 @@
 .bomb{
     background-color: red;
 }
+
+.pointer{
+    pointer-events: none;
+}

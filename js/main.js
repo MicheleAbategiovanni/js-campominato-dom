@@ -18,7 +18,4 @@ btnPlayEl.addEventListener("click", function () {
     bombs = generateBombsList(+difficultyEl);
     generateCells(gridContainerEl, difficultyEl);
 
-})
-
-
-
+});
