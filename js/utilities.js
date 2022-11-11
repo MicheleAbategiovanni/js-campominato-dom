@@ -52,7 +52,6 @@ function cellClick() {
         } else {
 
             this.classList.toggle("active");
-            this.classList.toggle("pointer");
 
             contatorePunteggio++;
 
